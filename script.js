@@ -9,9 +9,7 @@
  * else you will replace the word in "sentence" with however "word to bold" is capitalized
  */
 
-const originalTSV = `11	¡Ademàs, soy muy bueno peleando!	Peleando	pelear	to fight	1	One_Piece	manga	2022/12/18	wordCount:11 chapter:1 IPTag:One_Piece mediaTag:manga dateMined:2022/12/18
-12	¡¡Mi puñetazo es tan fuerte como una bala!!	puñetazo	el puñetazo	punch with the fist, thump	1	One_Piece	manga	2022/12/18	wordCount:12 chapter:1 IPTag:One_Piece mediaTag:manga dateMined:2022/12/18
-13	¿Una bala? Wow, ¿de verdad? - ¿¡Que tipo de tono es ese!?	bala	la bala	bullet	1	One_Piece	manga	2022/12/18	wordCount:13 chapter:1 IPTag:One_Piece mediaTag:manga dateMined:2022/12/18`;
+const originalTSV = `replace me with TSV!`;
 
 // finds any backticks before commencing
 if (originalTSV.includes("`")) {

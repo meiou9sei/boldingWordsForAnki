@@ -6,7 +6,6 @@
 
 /**
  * NOTE: keep the capitalization in "word to bold" column the same as it is in "sentence"!
- * else you will replace the word in "sentence" with however "word to bold" is capitalized
  */
 
 const originalTSV = `replace me with TSV!`;
@@ -28,7 +27,7 @@ if (originalTSV.includes("`")) {
     const tempList = list.split("\t");
     const boldWord = new RegExp(`\\b${tempList[2]}\\b`);
     const newTempList = tempList[1].replace(boldWord, `<b>${tempList[2]}</b>`);
-    // check if word was replaced, if not, throw error
+    // check if word was replaced, if not, alert user
     if (newTempList === tempList[1]) {
       alert(
         `Word #${tempList[0]} was not replaced. Please check for errors, perhaps the lettercase is not the same`

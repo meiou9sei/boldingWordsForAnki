@@ -22,7 +22,7 @@ if (originalTSV.includes("`")) {
    * replaces the bolded **word** in sentence with <b>word</b>
    */
   const newJoinedLists = [];
-  const errorFlag = false;
+  const errorExists = false;
   separatedList.forEach((list) => {
     const tempList = list.split("\t");
     // see answer by bormat https://stackoverflow.com/questions/2449779/why-cant-i-use-accented-characters-next-to-a-word-boundary
@@ -35,6 +35,7 @@ if (originalTSV.includes("`")) {
       alert(
         `Word #${tempList[0]} was not replaced. Please check for errors, perhaps the lettercase is not the same`
       );
+      errorExists = true;
     }
     tempList[1] = newTempList;
     const newList = tempList.join("\t");
@@ -43,7 +44,7 @@ if (originalTSV.includes("`")) {
 
   const newTSV = newJoinedLists.join("\n");
 
-  if (errorFlag) {
+  if (errorExists) {
     console.log("fix errors then rerun script");
   } else {
     console.log(newTSV);

@@ -8,7 +8,7 @@
  * NOTE: keep the capitalization in "word to bold" column the same as it is in "sentence"!
  */
 
-const originalTSV = `replace me with TSV!`;
+const originalTSV = `Replace me with the TSV!`;
 
 // finds any backticks before commencing
 if (originalTSV.includes("`")) {
@@ -25,7 +25,10 @@ if (originalTSV.includes("`")) {
   const errorFlag = false;
   separatedList.forEach((list) => {
     const tempList = list.split("\t");
-    const boldWord = new RegExp(`\\b${tempList[2]}\\b`);
+    // see answer by bormat https://stackoverflow.com/questions/2449779/why-cant-i-use-accented-characters-next-to-a-word-boundary
+    const boldWord = new RegExp(
+      `(?<![A-Za-zÀ-ÖØ-öø-ÿ])${tempList[2]}(?![A-Za-zÀ-ÖØ-öø-ÿ])`
+    );
     const newTempList = tempList[1].replace(boldWord, `<b>${tempList[2]}</b>`);
     // check if word was replaced, if not, alert user
     if (newTempList === tempList[1]) {
@@ -40,7 +43,7 @@ if (originalTSV.includes("`")) {
 
   const newTSV = newJoinedLists.join("\n");
 
-  if (!errorFlag) {
+  if (errorFlag) {
     console.log("fix errors then rerun script");
   } else {
     console.log(newTSV);

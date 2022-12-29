@@ -41,6 +41,16 @@ if (originalTSV.includes("`")) {
       errorExists = true;
     }
     tempList[1] = sentenceWithBoldedWord;
+
+    // next bit is custom for my sheets/deck, reorders fields so I can import without reordering anki's suggested fields
+    // from here
+    tempList[0] = tempList[1];
+    tempList[1] = tempList[3];
+    tempList[2] = tempList[4];
+    tempList[3] = tempList[9];
+    tempList.splice(4);
+    // to here
+
     const newList = tempList.join("\t");
     newJoinedLists.push(newList);
   });

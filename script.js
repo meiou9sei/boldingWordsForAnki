@@ -29,15 +29,18 @@ if (originalTSV.includes("`")) {
     const boldWord = new RegExp(
       `(?<![A-Za-zÀ-ÖØ-öø-ÿ])${tempList[2]}(?![A-Za-zÀ-ÖØ-öø-ÿ])`
     );
-    const newTempList = tempList[1].replace(boldWord, `<b>${tempList[2]}</b>`);
+    const sentenceWithBoldedWord = tempList[1].replace(
+      boldWord,
+      `<b>${tempList[2]}</b>`
+    );
     // check if word was replaced, if not, alert user
-    if (newTempList === tempList[1]) {
+    if (sentenceWithBoldedWord === tempList[1]) {
       alert(
         `Word #${tempList[0]} was not replaced. Please check for errors, perhaps the lettercase is not the same`
       );
       errorExists = true;
     }
-    tempList[1] = newTempList;
+    tempList[1] = sentenceWithBoldedWord;
     const newList = tempList.join("\t");
     newJoinedLists.push(newList);
   });
